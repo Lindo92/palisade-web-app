@@ -9,7 +9,7 @@ import NavBar from "./components/navbar.component";
 import AddEntry from "./components/add-entry.component";
 import EntriesList from "./components/list-entries.components";
 import Entry from "./components/Entry.component";
-
+import AccountsList from "./components/list-accounts.component";
 
 class App extends Component<{}, {}> {
   render() {
@@ -24,7 +24,8 @@ class App extends Component<{}, {}> {
             <Route path="/profile" element={<Profile/>} />
             <Route path="/add" element={<AddEntry/>} />
             <Route path="/entries" element={<EntriesList/>} />
-            <Route path="/tutorials/:id" element={<Entry/>} />
+            <Route path="/entries/:id" element={<Entry/>} />
+            <Route path="/accounts" element={<AccountsList/>} />
           </Routes>
         </div>
 

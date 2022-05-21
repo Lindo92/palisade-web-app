@@ -178,7 +178,7 @@ const EntriesList: React.FC = () => {
               {currentEntry.isClosed ? 'closed' : 'open'}
             </div>
             <Link
-              to={"/tutorials/" + currentEntry._id}
+              to={"/entries/" + currentEntry._id}
               className="badge badge-warning"
             >
               Edit
@@ -190,7 +190,7 @@ const EntriesList: React.FC = () => {
         ) : (
           <div>
             <br />
-            <p>Please click on a Tutorial...</p>
+            <p>Please click on a Entry...</p>
           </div>
         )}
       </div>

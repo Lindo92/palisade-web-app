@@ -7,12 +7,16 @@ type Filter = {
 
 class AccountsService {
   async getAllAccountsAdmin() {
-    return (await axios.get(API_URL + 'find', { withCredentials: true })).data;
+    return (await axios.get(API_URL + 'find', { withCredentials: true }));
   }
 
   async getAccountsRawAdmin(filter: Filter) {
     return (await axios.post(API_URL + 'find-raw', filter, { withCredentials: true })).data;
 
+  }
+
+  async getAccountsUsernameAdmin(value: string) {
+    return (await axios.post(API_URL + 'find-username', { value }, { withCredentials: true }))
   }
 
   async getOneAccountByIdAdmin(id: string) {
