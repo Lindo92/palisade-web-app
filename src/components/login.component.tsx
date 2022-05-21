@@ -1,15 +1,11 @@
 import { Component } from "react";
-import { Link, RouteComponentProps } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 import AuthService from "../services/auth.service";
 
-interface RouterProps {
-  history: string;
-}
-
-type Props = RouteComponentProps<RouterProps>;
+type Props = {}
 
 type State = {
   username: string,
@@ -49,7 +45,7 @@ export default class Login extends Component<Props, State> {
 
     AuthService.login(username, password).then(
       () => {
-        this.props.history.push("/profile");
+        <Navigate to="/profile"/>;
         window.location.reload();
       },
       error => {
@@ -131,7 +127,7 @@ export default class Login extends Component<Props, State> {
           </Formik>
           <button className="btn btn-primary btn-block">
                 <Link to={"/register"} className="btn-primary">
-                  Register
+                  Sign Up
                   </Link>
           </button>
         </div>

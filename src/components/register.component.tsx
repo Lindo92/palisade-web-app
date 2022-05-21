@@ -4,6 +4,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 import AuthService from "../services/auth.service";
+import { Link } from "react-router-dom";
 
 type Props = {};
 
@@ -177,6 +178,26 @@ export default class Register extends Component<Props, State> {
                   </div>
 
                   <div className="form-group">
+                    <label htmlFor="firstname"> First Name </label>
+                    <Field name="firstname" type="text" className="form-control" />
+                    <ErrorMessage
+                      name="firstname"
+                      component="div"
+                      className="alert alert-danger"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="firstname"> Last Name </label>
+                    <Field name="firstname" type="text" className="form-control" />
+                    <ErrorMessage
+                      name="firstname"
+                      component="div"
+                      className="alert alert-danger"
+                    />
+                  </div>
+
+                  <div className="form-group">
                     <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
                   </div>
                 </div>
@@ -196,6 +217,11 @@ export default class Register extends Component<Props, State> {
               )}
             </Form>
           </Formik>
+          <button className="btn btn-primary btn-block">
+            <Link to={"/"} className="btn-primary">
+              Back to Login
+            </Link>
+          </button>
         </div>
       </div>
     );

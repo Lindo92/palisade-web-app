@@ -6,33 +6,35 @@ type Filter = {
 };
 
 class AccountsService {
-  getAllAccountsAdmin() {
-    return axios.get(API_URL + 'find', { withCredentials: true });
+  async getAllAccountsAdmin() {
+    return (await axios.get(API_URL + 'find', { withCredentials: true })).data;
   }
 
-  getAccountsRawAdmin(filter: Filter) {
-    return axios.post(API_URL + 'find-raw', filter, { withCredentials: true });
+  async getAccountsRawAdmin(filter: Filter) {
+    return (await axios.post(API_URL + 'find-raw', filter, { withCredentials: true })).data;
+
   }
 
-  getOneAccountByIdAdmin(id: string) {
+  async getOneAccountByIdAdmin(id: string) {
     const params = new URLSearchParams([['id', id]]);
-    return axios.get(API_URL + 'find-one', { params, withCredentials: true })
+    return (await axios.get(API_URL + 'find-one', { params, withCredentials: true })).data;
+
   }
 
-  getOneAccountRawAdmin(filter: Filter) {
-    return axios.post(API_URL + 'find-one-raw', filter, { withCredentials: true })
+  async getOneAccountRawAdmin(filter: Filter) {
+    return (await (axios.post(API_URL + 'find-one-raw', filter, { withCredentials: true }))).data;
   }
 
-  updateAccountUser(id: string, updateAccountDto: any) {
-    return axios.patch(API_URL + 'update-your-account', updateAccountDto, { withCredentials: true })
+  async updateAccountUser(id: string, updateAccountDto: any) {
+    return (await (axios.patch(API_URL + 'update-your-account', updateAccountDto, { withCredentials: true }))).data;
   }
 
-  deleteAccountAdmin(id: string) {
-    return axios.delete(API_URL + 'delete', { withCredentials: true })
+  async deleteAccountAdmin(id: string) {
+    return (await (axios.delete(API_URL + 'delete', { withCredentials: true }))).data;
   }
 
-  deleteOwnAccountUser(id: string) {
-    return axios.delete(API_URL + 'delete-your-account', { withCredentials: true })
+  async deleteOwnAccountUser(id: string) {
+    return (await (axios.delete(API_URL + 'delete-your-account', { withCredentials: true }))).data;
   }
 
 }
