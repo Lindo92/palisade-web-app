@@ -8,6 +8,7 @@ const EntriesList: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(-1);
   const [searchTitle, setSearchTitle] = useState<string>("");
   const [creatorTitle, setCreatorTitle] = useState<string>("")
+  const [devUsernames, setDevUsernames] = useState<string[]>([])
   useEffect(() => {
     retrieveEntries();
   }, []);
@@ -34,6 +35,7 @@ const EntriesList: React.FC = () => {
     setCurrentEntry(entry);
     setCurrentIndex(index);
     getUserName(entry.creatorAccountId)
+    getDevNames(entry.assignedDeveloperIds)
   };
   const removeEntryById = (id: string) => {
     EntryService.deleteEntryAdmin(id)
@@ -46,10 +48,27 @@ const EntriesList: React.FC = () => {
       });
   };
 
+  const getDevNames = async (ids: [string]) => {
+    const array: string[] = [];
+    ids.forEach(id => {
+    accountsService.getOneAccountByIdAdmin(id).then((response: any) => {
+      console.log(response.data);
+      array.push(response.data.username)
+    }).catch((e: Error) => {
+      console.log(e)
+    });
+    })
+    setDevUsernames(array);
+    console.log(array);
+  }
+
   const getUserName = async (id: string) => {
-    const account: any = await accountsService.getOneAccountByIdAdmin(id);
-    console.log(account);
-    setCreatorTitle(account.username)
+    accountsService.getOneAccountByIdAdmin(id).then((response: any) => {
+      console.log(response.data);
+      setCreatorTitle(response.data.username)
+    }).catch((e: Error) => {
+      console.log(e)
+    });
   };
   const findByTitle = () => {
     EntryService.getEntriesTitleUser(searchTitle)
@@ -151,7 +170,10 @@ const EntriesList: React.FC = () => {
               <label>
                 <strong>Assigned Developers:</strong>
               </label>{" "}
-              {currentEntry.assignedDeveloperIds}
+                  <ul>
+              {devUsernames &&
+                devUsernames.map((username: any, index: any) => <li key={index}>{username}</li>)}
+            </ul>
             </div>
             <div>
               <label>

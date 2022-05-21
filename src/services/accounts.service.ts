@@ -21,7 +21,7 @@ class AccountsService {
 
   async getOneAccountByIdAdmin(id: string) {
     const params = new URLSearchParams([['id', id]]);
-    return (await axios.get(API_URL + 'find-one', { params, withCredentials: true })).data;
+    return (await axios.get(API_URL + 'find-one', { params, withCredentials: true }))
 
   }
 

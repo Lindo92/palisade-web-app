@@ -13,7 +13,7 @@ const Entry: React.FC = () => {
 	area: "",
 	product: "",
   toBeFixedByVer: "",
-  assignedDevelopers: "",
+  assignedDeveloperIds: [],
   creatorAccountId: "",
   isReadyForTesting: false,
   resolutionStatus: "",
@@ -143,13 +143,13 @@ const Entry: React.FC = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="assignedDevelopers">Assigned Developers</label>
+              <label htmlFor="assignedDeveloperIds">Assigned Developers</label>
               <input
                 type="text"
                 className="form-control"
-                id="assignedDevelopers"
-                name="assignedDevelopers"
-                value={currentEntry.assignedDevelopers}
+                id="assignedDeveloperIds"
+                name="assignedDeveloperIds"
+                value={currentEntry.assignedDeveloperIds}
                 onChange={handleInputChange}
               />
             </div>
