@@ -188,10 +188,10 @@ export default class Register extends Component<Props, State> {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="firstname"> Last Name </label>
-                    <Field name="firstname" type="text" className="form-control" />
+                    <label htmlFor="lastname"> Last Name </label>
+                    <Field name="lastname" type="text" className="form-control" />
                     <ErrorMessage
-                      name="firstname"
+                      name="lastname"
                       component="div"
                       className="alert alert-danger"
                     />
