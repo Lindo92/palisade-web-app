@@ -2,12 +2,12 @@ import React, { useState, ChangeEvent } from "react";
 import EntryService from "../services/entries.service"
 const AddEntry: React.FC = () => {
   const initialEntryState = {
-  title: "",
-	description: "",
-	priority: "",
-	category: "",
-	area: "",
-	product: "",
+    title: "",
+    description: "",
+    priority: "",
+    category: "",
+    area: "",
+    product: "",
   };
   const [entry, setEntry] = useState<any>(initialEntryState);
   const [submitted, setSubmitted] = useState<boolean>(false);
@@ -43,8 +43,8 @@ const AddEntry: React.FC = () => {
     setEntry(initialEntryState);
     setSubmitted(false);
   };
-  return ( 
-      <div className="submit-form">
+  return (
+    <div className="submit-form text-white">
       {submitted ? (
         <div>
           <h4>You submitted successfully!</h4>
@@ -132,6 +132,6 @@ const AddEntry: React.FC = () => {
         </div>
       )}
     </div>
-   );
+  );
 };
 export default AddEntry;

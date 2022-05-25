@@ -45,7 +45,7 @@ export default class Login extends Component<Props, State> {
 
     AuthService.login(username, password).then(
       () => {
-        <Navigate to="/profile"/>;
+        <Navigate to="/profile" />;
         window.location.reload();
       },
       error => {
@@ -76,7 +76,7 @@ export default class Login extends Component<Props, State> {
       <div className="col-md-12">
         <div className="card card-container">
           <img
-            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            src="http://cdn.onlinewebfonts.com/svg/img_311846.png"
             alt="profile-img"
             className="profile-img-card"
           />
@@ -108,7 +108,7 @@ export default class Login extends Component<Props, State> {
               </div>
 
               <div className="form-group">
-                <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
+                <button type="submit" className="btn-dark btn-primary btn-block" disabled={loading}>
                   {loading && (
                     <span className="spinner-border spinner-border-sm"></span>
                   )}
@@ -125,13 +125,13 @@ export default class Login extends Component<Props, State> {
               )}
             </Form>
           </Formik>
-          <button className="btn btn-primary btn-block">
-                <Link to={"/register"} className="btn-primary">
-                  Sign Up
-                  </Link>
+          <button className="btn-dark btn-primary btn-block">
+            <Link to={"/register"} className="btn-primary btn-dark">
+              Sign Up
+            </Link>
           </button>
         </div>
-        
+
       </div>
     );
   }

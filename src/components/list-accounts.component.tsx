@@ -55,98 +55,98 @@ const AccountsList: React.FC = () => {
         console.log(e);
       });
   };
-  return (  <div className="list row">
-      <div className="col-md-8">
-        <div className="input-group mb-3">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search by username"
-            value={searchUsername}
-            onChange={onChangeSearchUsername}
-          />
-          <div className="input-group-append">
-            <button
-              className="btn btn-outline-secondary"
-              type="button"
-              onClick={findByUserName}
-            >
-              Search
-            </button>
-          </div>
+  return (<div className="list row">
+    <div className="col-md-8">
+      <div className="input-group mb-3">
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Search by username"
+          value={searchUsername}
+          onChange={onChangeSearchUsername}
+        />
+        <div className="input-group-append">
+          <button
+            className="btn-dark btn-outline-secondary"
+            type="button"
+            onClick={findByUserName}
+          >
+            Search
+          </button>
         </div>
       </div>
-      <div className="col-md-6">
-        <h4>Accounts List</h4>
-        <ul className="list-group">
-          {accounts &&
-            accounts.map((account, index) => (
-              <li
-                className={
-                  "list-group-item " + (index === currentIndex ? "active" : "")
-                }
-                onClick={() => setActiveAccount(account, index)}
-                key={index}
-              >
-                {account.username}
-              </li>
-            ))}
-        </ul>
-      </div>
-      <div className="col-md-6">
-        {currentAccount ? (
+    </div>
+    <div className="col-md-6">
+      <h4 className="text-white">Accounts List</h4>
+      <ul className="list-group">
+        {accounts &&
+          accounts.map((account, index) => (
+            <li
+              className={
+                "list-group-item " + (index === currentIndex ? "active" : "")
+              }
+              onClick={() => setActiveAccount(account, index)}
+              key={index}
+            >
+              {account.username}
+            </li>
+          ))}
+      </ul>
+    </div>
+    <div className="col-md-6 text-white">
+      {currentAccount ? (
+        <div>
+          <h4>Account</h4>
           <div>
-            <h4>Account</h4>
-            <div>
-              <label>
-                <strong>Username:</strong>
-              </label>{" "}
-              {currentAccount.username}
-            </div>
-            <div>
-              <label>
-                <strong>First Name:</strong>
-              </label>{" "}
-              {currentAccount.firstname}
-            </div>
-            <div>
-              <label>
-                <strong>Last Name:</strong>
-              </label>{" "}
-              {currentAccount.lastname}
-            </div>
-            <div>
-              <label>
-                <strong>Email:</strong>
-              </label>{" "}
-              {currentAccount.email}
-            </div>
-            <div>
-                            <label>
-                <strong>Authorities:</strong>
-              </label>{" "}
-             <ul>
+            <label>
+              <strong>Username:</strong>
+            </label>{" "}
+            {currentAccount.username}
+          </div>
+          <div>
+            <label>
+              <strong>First Name:</strong>
+            </label>{" "}
+            {currentAccount.firstname}
+          </div>
+          <div>
+            <label>
+              <strong>Last Name:</strong>
+            </label>{" "}
+            {currentAccount.lastname}
+          </div>
+          <div>
+            <label>
+              <strong>Email:</strong>
+            </label>{" "}
+            {currentAccount.email}
+          </div>
+          <div>
+            <label>
+              <strong>Authorities:</strong>
+            </label>{" "}
+            <ul>
               {currentAccount.roles &&
                 currentAccount.roles.map((role: any, index: any) => <li key={index}>{role}</li>)}
             </ul>
-            </div>
-            <Link
-              to={"/accounts/" + currentAccount._id}
-              className="badge badge-warning"
-            >
-              Edit
-            </Link>
-            <button onClick={() => removeAccountById(currentAccount._id)} className="=m-3 btn btn-sm btn-danger">
-              Delete
-            </button>
           </div>
-        ) : (
-          <div>
-            <br />
-            <p>Please click on a Account...</p>
-          </div>
-        )}
-      </div>
-    </div> )
+          <Link
+            to={"/accounts/" + currentAccount._id}
+            className="m-3 btn btn-sm btn-warning"
+          >
+            Edit
+          </Link>
+          <button onClick={() => removeAccountById(currentAccount._id)} className="=m-3 btn btn-sm btn-danger">
+            Delete
+          </button>
+        </div>
+      ) : (
+        <div>
+          <br />
+          <p>Please click on a Account...</p>
+        </div>
+      )}
+    </div>
+  </div>)
 };
 export default AccountsList;

@@ -126,11 +126,11 @@ export default class Register extends Component<Props, State> {
       lastname: "",
     };
 
-  return (
+    return (
       <div className="col-md-12">
         <div className="card card-container">
           <img
-            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            src="http://cdn.onlinewebfonts.com/svg/img_311846.png"
             alt="profile-img"
             className="profile-img-card"
           />
@@ -198,7 +198,7 @@ export default class Register extends Component<Props, State> {
                   </div>
 
                   <div className="form-group">
-                    <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
+                    <button type="submit" className="btn-dark btn-primary btn-block">Sign Up</button>
                   </div>
                 </div>
               )}
@@ -217,8 +217,8 @@ export default class Register extends Component<Props, State> {
               )}
             </Form>
           </Formik>
-          <button className="btn btn-primary btn-block">
-            <Link to={"/"} className="btn-primary">
+          <button className="btn-dark btn-primary btn-block">
+            <Link to={"/"} className="btn-primary btn-dark">
               Back to Login
             </Link>
           </button>

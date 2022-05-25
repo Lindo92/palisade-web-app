@@ -38,29 +38,29 @@ export default class Profile extends Component<Props, State> {
       <div className="container">
         {(this.state.userReady) ?
           <div>
-            <header className="jumbotron">
+            <header className="jumbotron picture">
               <h3>
                 <strong>{`${currentUser.username}'s`}</strong> Profile
               </h3>
             </header>
-            <p>
+            <p className="text-white">
               <strong>Id:</strong>{" "}
               {currentUser._id}
             </p>
-            <p>
+            <p className="text-white">
               <strong>Email:</strong>{" "}
               {currentUser.email}
             </p>
-            <p>
+            <p className="text-white">
               <strong>First Name:</strong>{" "}
               {currentUser.firstname}
             </p>
-            <p>
+            <p className="text-white">
               <strong>Last Name:</strong>{" "}
               {currentUser.lastname}
             </p>
-            <strong>Authorities:</strong>
-            <ul>
+            <strong className="text-white">Authorities:</strong>
+            <ul className="text-white">
               {currentUser.roles &&
                 currentUser.roles.map((role: any, index: any) => <li key={index}>{role}</li>)}
             </ul>

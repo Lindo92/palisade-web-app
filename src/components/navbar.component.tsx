@@ -44,7 +44,7 @@ class NavBar extends Component<Props, State> {
   }
 
   render() {
-    const { currentUser} = this.state;
+    const { currentUser } = this.state;
 
     return (
       <div>
@@ -54,37 +54,37 @@ class NavBar extends Component<Props, State> {
           </Link>
 
           {currentUser ? (
-          <>
-            <div className="navbar-nav">
-              <li className="nav-item">
-                <Link to={"/entries"} className="nav-link">
-                  Entries
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/add"} className="nav-link">
-                  Add Entries
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/accounts"} className="nav-link">
-                  Accounts
-                </Link>
-              </li>
-            </div>
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={"/profile"} className="nav-link">
-                  {`${currentUser.username}'s profile`}
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a href="/" className="nav-link" onClick={this.logOut}>
-                  Log Out
-                </a>
-              </li>
-            </div>
-          </>
+            <>
+              <div className="navbar-nav ">
+                <li className="nav-item">
+                  <Link to={"/entries"} className="nav-link text-white">
+                    Entries
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to={"/add"} className="nav-link text-white">
+                    Add Entries
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to={"/accounts"} className="nav-link text-white">
+                    Accounts
+                  </Link>
+                </li>
+              </div>
+              <div className="navbar-nav ml-auto">
+                <li className="nav-item">
+                  <Link to={"/profile"} className="nav-link text-white">
+                    {`${currentUser.username}'s profile`}
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <a href="/" className="nav-link text-white" onClick={this.logOut}>
+                    Log Out
+                  </a>
+                </li>
+              </div>
+            </>
           ) : (
             <div className="navbar-nav ml-auto">
               <li className="nav-item">

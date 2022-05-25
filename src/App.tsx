@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Routes, Route,  } from "react-router-dom";
+import { Routes, Route, } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Login from "./components/login.component";
@@ -20,14 +20,14 @@ class App extends Component<{}, {}> {
         <NavBar></NavBar>
         <div className="container mt-3">
           <Routes>
-            <Route path="/" element={<Login/>} />
-            <Route path="/register" element={<Register/>} />
-            <Route path="/profile" element={<Profile/>} />
-            <Route path="/add" element={<AddEntry/>} />
-            <Route path="/entries" element={<EntriesList/>} />
-            <Route path="/entries/:id" element={<Entry/>} />
-            <Route path="/accounts" element={<AccountsList/>} />
-            <Route path="/accounts/:id" element={<Account/>} />
+            <Route path="/" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/add" element={<AddEntry />} />
+            <Route path="/entries" element={<EntriesList />} />
+            <Route path="/entries/:id" element={<Entry />} />
+            <Route path="/accounts" element={<AccountsList />} />
+            <Route path="/accounts/:id" element={<Account />} />
           </Routes>
         </div>
 
